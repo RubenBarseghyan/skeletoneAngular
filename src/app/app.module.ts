@@ -9,6 +9,7 @@ import { MaterialModule} from './shared/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RepositoryService } from './core/services/repository.service';
 import {HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
 
 
 
@@ -19,7 +20,8 @@ import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
