@@ -8,17 +8,22 @@ import { LoginComponent } from './pages/login/login.component';
 import { MaterialModule} from './shared/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RepositoryService } from './core/services/repository.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
 
-
-
-
-
-
 // to add new module must import module and list it in imports
+
+// jwt
+import { JwtModule } from '@auth0/angular-jwt';
+import {HttpConfigInterceptor} from './core/interceptor/httpconfig.interceptor';
+export function tokenGetter() {
+  return localStorage.getItem('currentUser');
+}
+
+// interceptors
+
 
 @NgModule({
   declarations: [
@@ -34,9 +39,14 @@ import { HeaderComponent } from './pages/header/header.component';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+      }
+    }),
   ],
-  providers: [RepositoryService],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }, RepositoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
