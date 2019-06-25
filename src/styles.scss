@@ -2,6 +2,13 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: aqua }
+html, body { height: 100vh; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  background-image: url("http://namonitore.ru/uploads/catalog/landscapes/listok_s_kapelkami_vodi_1600.jpg");
+}

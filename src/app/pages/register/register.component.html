@@ -1,0 +1,35 @@
+
+<div class="must">
+  <div class="main-container">
+    <div class="form-header">
+      <h2>Registration</h2>
+    </div>
+    <mat-card class="card">
+        <form class="login-form" [formGroup]="userFormRegister" (ngSubmit)="onSubmit()" *ngIf="!isloaded; else templateRefLoader">
+          <mat-form-field>
+            <input matInput placeholder="Username" formControlName="userName">
+          </mat-form-field>
+          <br/>
+          <mat-form-field>
+            <input matInput placeholder="Email" formControlName="userEmail">
+          </mat-form-field>
+          <br/>
+          <mat-form-field>
+            <input matInput placeholder="Password" formControlName="userPassword">
+          </mat-form-field>
+          <br/>
+          <mat-form-field>
+            <input matInput placeholder="Confirm Password" formControlName="userPasswordConfirm">
+          </mat-form-field>
+          <br/>
+          <button [disabled]="userFormRegister.invalid">Register</button>
+        </form>
+      <ng-template #templateRefLoader>
+        <mat-spinner [diameter]="80" class="spinner"></mat-spinner>
+      </ng-template>
+    </mat-card>
+    <div class="form-footer">
+      <a routerLink="/login">Login</a>
+    </div>
+  </div>
+</div>

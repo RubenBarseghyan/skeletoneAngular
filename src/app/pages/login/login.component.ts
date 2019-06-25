@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   public userFormLogin: FormGroup;
   public errorMes: string;
+  public isLoad = false;
 
   constructor(private  http: RepositoryService, private router: Router) { }
 
@@ -20,19 +21,19 @@ export class LoginComponent implements OnInit {
       userPassword: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(10)])
     });
   }
-  onSubmit(): void {
-    const url = 'api/user/login';
+  public onSubmit() {
+    const url: string = 'api/user/login';
     const body  = this.userFormLogin.getRawValue();
     this.http.create(url, body).subscribe((res: any) => {
       console.log('login');
-      if (res.token) {
+      if(res.token){
         localStorage.setItem('userInfo', JSON.stringify(res));
       }
       if (res.role === 'user') {
         this.router.navigate(['home']);
-      } else { this.router.navigate(['admin']); }
+      } else {
+        this.router.navigate(['admin']); }
 
-    }, error => console.log(error, 'login error'));
-
+    }, error => this.errorMes = error.message);
   }
 }
