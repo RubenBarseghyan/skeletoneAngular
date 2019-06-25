@@ -10,6 +10,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RepositoryService } from './core/services/repository.service';
 import {HttpClientModule} from '@angular/common/http';
 import { RegisterComponent } from './pages/register/register.component';
+import { HomeComponent } from './pages/home/home.component';
+import { HeaderComponent } from './pages/header/header.component';
+
 
 
 
@@ -21,7 +24,9 @@ import { RegisterComponent } from './pages/register/register.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
