@@ -1,0 +1,27 @@
+.example-card {
+  max-height: 100%;
+  width: 100%;
+  background: transparent;
+  text-align: center;
+
+}
+
+.main-container {
+  background-size: cover;
+  border: 1px solid blue;
+  border-radius: 7px;
+  margin: 10% auto;
+  width: 40%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+
+mat-form-field {
+  width: 40%;
+}
+
+button {
+  margin: 15px;
+}
