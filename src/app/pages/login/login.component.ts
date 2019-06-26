@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     });
   }
   public onSubmit() {
+    this.isLoad = true;
     const url = 'api/user/login';
     const body  = this.userFormLogin.getRawValue();
     this.http.create(url, body).subscribe((res: any) => {
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['admin']); }
 
     }, (error) => {
+      this.isLoad = false;
       if (error.status === '404') {
         this.emailErrMsgFromBackend = error.error.message;
       } else {
