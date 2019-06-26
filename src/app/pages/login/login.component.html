@@ -29,6 +29,7 @@
             <mat-error *ngIf="passErrMsgFromBackend">
               <p class="error-msg">{{ passErrMsgFromBackend }}</p>
             </mat-error>
+
             <mat-error *ngIf="userFormLogin.controls['userPassword'].invalid && userFormLogin.controls['userPassword'].touched">
               <p class="error-msg">{{ formControlPassMsg }}</p>
             </mat-error>

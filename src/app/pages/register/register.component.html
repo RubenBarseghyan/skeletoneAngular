@@ -5,28 +5,55 @@
       <h2>Registration</h2>
     </div>
     <mat-card class="card">
-        <form class="login-form" [formGroup]="userFormRegister" (ngSubmit)="onSubmit()" *ngIf="!isloaded; else templateRefLoader">
+        <form class="login-form" [formGroup]="userFormRegister" (ngSubmit)="onSubmit()" *ngIf="!isLoad; else templateRefLoader">
+
           <mat-form-field>
             <input matInput placeholder="Username" formControlName="userName">
           </mat-form-field>
+          <mat-error *ngIf="userFormRegister.controls['userName'].invalid && userFormRegister.controls['userName'].touched">
+            <p class="error-msg">{{ formControlNameMsg }}</p>
+          </mat-error>
+
           <br/>
+
           <mat-form-field>
             <input matInput placeholder="Email" formControlName="userEmail">
           </mat-form-field>
+          <mat-error *ngIf="userFormRegister.controls['userEmail'].invalid && userFormRegister.controls['userEmail'].touched">
+            <p class="error-msg">{{ formControlEmailMsg }}</p>
+          </mat-error>
+          <mat-error *ngIf="emailErrMsgFromBackend">
+            <p class="error-msg">{{ emailErrMsgFromBackend }}</p>
+          </mat-error>
+
           <br/>
+
           <mat-form-field>
-            <input matInput placeholder="Password" formControlName="userPassword">
+            <input matInput placeholder="Password" formControlName="userPassword" type="password">
           </mat-form-field>
+          <mat-error *ngIf="userFormRegister.controls['userPassword'].invalid && userFormRegister.controls['userPassword'].touched">
+            <p class="error-msg">{{ formControlPassMsg }}</p>
+          </mat-error>
+
           <br/>
+
           <mat-form-field>
-            <input matInput placeholder="Confirm Password" formControlName="userPasswordConfirm">
+            <input matInput placeholder="Confirm Password" formControlName="userPasswordConfirm" type="password">
           </mat-form-field>
+          <mat-error *ngIf="userFormRegister.value.userPassword !== userFormRegister.value.userPasswordConfirm">
+            <p class="error-msg">{{ comparePass }}</p>
+          </mat-error>
+
           <br/>
+
           <button [disabled]="userFormRegister.invalid">Register</button>
+
         </form>
+
       <ng-template #templateRefLoader>
         <mat-spinner [diameter]="80" class="spinner"></mat-spinner>
       </ng-template>
+
     </mat-card>
     <div class="form-footer">
       <a routerLink="/login">Login</a>
