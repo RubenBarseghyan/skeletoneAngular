@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="container">
+    <mat-card>
+      <span>Movie: {{theMovie?.name}}</span>
+        <button mat-raised-button class="btn"> Reserve Seat</button>
+      <div>
+        <iframe width="560" height="315" [src]='sanitizer.bypassSecurityTrustResourceUrl(theMovie?.trailer)' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </mat-card>
+  </div>
+

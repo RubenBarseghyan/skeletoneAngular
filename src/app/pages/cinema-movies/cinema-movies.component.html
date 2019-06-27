@@ -4,7 +4,7 @@
   <div class="card-main">
     <mat-card *ngFor="let item of allMoviesByCinemaId">
       <p>{{item.name}}</p>
-      <a [routerLink]="['cinemas', item._id]"> <img mat-card-image src="{{item.image}}"> </a>
+      <a [routerLink]="['moviepresent', item._id]"> <img mat-card-image src="{{item.image}}"> </a>
     </mat-card>
   </div>
 </div>

@@ -15,7 +15,7 @@ export class CinemaMoviesComponent implements OnInit {
   public allMoviesByCinemaId: Movies[] = [];
 
 
-  constructor(private http: RepositoryService, activatedRoute: ActivatedRoute) {
+  constructor(private http: RepositoryService, private activatedRoute: ActivatedRoute) {
     this.subscribtion = activatedRoute.params.subscribe(params => this.id = params.id);
   }
 
