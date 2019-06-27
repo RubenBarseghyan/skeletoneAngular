@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="main-container">
+  <h1>Movies</h1>
+  <div class="card-main">
+    <mat-card *ngFor="let item of allMoviesByCinemaId">
+      <h2>{{item.name}}</h2>
+      <a [routerLink]="['cinemas', item._id]"> <img mat-card-image src="{{item.image}}"> </a>
+    </mat-card>
+  </div>
+</div>
+

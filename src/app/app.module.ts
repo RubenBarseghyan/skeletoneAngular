@@ -19,6 +19,7 @@ import { HeaderComponent } from './pages/header/header.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import {HttpConfigInterceptor} from './core/interceptor/httpconfig.interceptor';
 import { SafePipe } from './shared/pipes/safe.pipe';
+import { CinemaMoviesComponent } from './pages/cinema-movies/cinema-movies.component';
 export function tokenGetter() {
   return localStorage.getItem('currentUser');
 }
@@ -33,7 +34,8 @@ export function tokenGetter() {
     RegisterComponent,
     HomeComponent,
     HeaderComponent,
-    SafePipe
+    SafePipe,
+    CinemaMoviesComponent
   ],
   imports: [
     BrowserModule,
