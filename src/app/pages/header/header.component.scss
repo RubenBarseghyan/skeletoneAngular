@@ -8,7 +8,16 @@
 a {
   margin-left: 5%;
   color: blue;
+  text-decoration: none;
 }
 .container {
   padding: 2px;
+}
+
+a:hover {
+  cursor: pointer;
+
+}
+.logout {
+  float: right;
 }

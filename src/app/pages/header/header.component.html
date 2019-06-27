@@ -2,10 +2,11 @@
 <div class="container">
   <mat-toolbar color="primary" class="navbar">
     <div>
-      <a>Home</a>
-      <a>Cinemas</a>
-      <a>Movies</a>
+      <a [routerLink]="['cinemas']">Cinemas</a>
+      <a [routerLink]="['movies']">Movies</a>
     </div>
-    <a>Log out</a>
+    <a class="logout" (click)="logOut()">Log out</a>
   </mat-toolbar>
 </div>
+
+
