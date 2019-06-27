@@ -18,6 +18,7 @@ import { HeaderComponent } from './pages/header/header.component';
 // jwt
 import { JwtModule } from '@auth0/angular-jwt';
 import {HttpConfigInterceptor} from './core/interceptor/httpconfig.interceptor';
+import { SafePipe } from './shared/pipes/safe.pipe';
 export function tokenGetter() {
   return localStorage.getItem('currentUser');
 }
@@ -31,7 +32,8 @@ export function tokenGetter() {
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

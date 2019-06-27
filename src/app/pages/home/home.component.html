@@ -1,1 +1,16 @@
 <app-header></app-header>
+<div class="container">
+  <div class="for-iteration" *ngFor="let item of cinemaBuildings">
+    <h1>Cinemas</h1>
+    <a [routerLink]="['cinemas', item._id]">
+      <mat-card style="background-image: url({{item.image}})">
+        <h2>{{item.name}}</h2>
+        <h3>Address: {{item.address}}</h3>
+      </mat-card>
+    </a>
+
+
+
+  </div>
+
+</div>
