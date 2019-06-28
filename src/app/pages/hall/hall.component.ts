@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef, MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-hall',
@@ -16,6 +16,7 @@ export class HallComponent implements OnInit {
   public clickedId: string = '';
 
   constructor(
+    private  snackBar: MatSnackBar,
     private matDialogRef: MatDialogRef<HallComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     // here you can pass data to the dialog
@@ -29,8 +30,9 @@ export class HallComponent implements OnInit {
       seat: new FormControl('77')
     });
   }
-  save() {
+  save(message) {
     this.matDialogRef.close(this.reserveGroup.value);
+    this.snackBar.open(message, null, {duration: 3000});
   }
 
   close() {
