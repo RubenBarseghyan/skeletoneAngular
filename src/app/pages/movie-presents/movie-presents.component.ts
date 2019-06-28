@@ -4,6 +4,8 @@ import {Subscription} from 'rxjs';
 import {Movies} from '../../core/models/interfaces/movies';
 import {RepositoryService} from '../../core/services/repository.service';
 import {DomSanitizer} from '@angular/platform-browser';
+import {MatDialog} from '@angular/material';
+import {HallComponent} from '../hall/hall.component';
 
 @Component({
   selector: 'app-movie-presents',
@@ -17,7 +19,8 @@ export class MoviePresentsComponent implements OnInit {
 
   constructor(private http: RepositoryService,
               private activatedRoute: ActivatedRoute,
-              private sanitizer: DomSanitizer) {
+              private sanitizer: DomSanitizer,
+              private dialog: MatDialog) {
     this.subscribtion = activatedRoute.params.subscribe(params => this.id = params.movieId);
   }
   // in params there is two values cinemaId and movieId
@@ -35,5 +38,13 @@ export class MoviePresentsComponent implements OnInit {
       console.log(error);
     });
   }
+
+  public openDialog() {
+      const dialogRef = this.dialog.open(HallComponent);
+      dialogRef.afterClosed().subscribe((data) => {
+            console.log(data, 'datat from dialog');
+      }, (error) => console.log(error.message));
+  }
+
 
 }

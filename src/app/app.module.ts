@@ -21,6 +21,7 @@ import {HttpConfigInterceptor} from './core/interceptor/httpconfig.interceptor';
 import { SafePipe } from './shared/pipes/safe.pipe';
 import { CinemaMoviesComponent } from './pages/cinema-movies/cinema-movies.component';
 import { MoviePresentsComponent } from './pages/movie-presents/movie-presents.component';
+import { HallComponent } from './pages/hall/hall.component';
 export function tokenGetter() {
   return localStorage.getItem('currentUser');
 }
@@ -37,7 +38,8 @@ export function tokenGetter() {
     HeaderComponent,
     SafePipe,
     CinemaMoviesComponent,
-    MoviePresentsComponent
+    MoviePresentsComponent,
+    HallComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ export function tokenGetter() {
       }
     }),
   ],
+  entryComponents: [HallComponent],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }, RepositoryService],
   bootstrap: [AppComponent]
 })
